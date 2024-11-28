@@ -6,11 +6,44 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:28:47 by egache            #+#    #+#             */
-/*   Updated: 2024/11/28 00:23:04 by egache           ###   ########.fr       */
+/*   Updated: 2024/11/28 12:14:15 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+static int	ft_printstr(char *str, int count)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		count += ft_putchar(str[i]);
+	return (count);
+}
+
+int	ft_spectype(char c, va_list arg, int count)
+{
+	if (c == 'c' || c == '%')
+		return (ft_putchar(c));
+	if (c == 's')
+		return (ft_printstr(va_arg(arg, char *), count));
+	return (count);
+	// if (c == 'p')
+	// 	return (ft_printptr(va_arg(arg, void *), count));
+	// if (c == 'd' || c == 'i')
+	// 	return (ft_printint(va_arg(arg, int), count));
+	// if (c == 'u')
+	// 	return (ft_printuint(va_arg(arg, unsigned int), count));
+	// if (c == 'x' || 'X')
+	// 	return (ft_printhex(va_arg(arg, int), count))
+}
 
 int	ft_printf(const char *str, ...)
 {
@@ -23,42 +56,20 @@ int	ft_printf(const char *str, ...)
 	va_start(arg, str);
 	while (str[i])
 	{
-		if (str[i++] == '%')
+		if (str[i] == '%')
 		{
-			count += ft_spectype(str[i], arg, count);
+			count += ft_spectype(str[++i], arg, count);
+			i++;
 		}
 		else
-			i++;
-			count += ft_putchar(str[i]);
+			count += ft_putchar(str[i++]);
 	}
 	va_end(arg);
 	return (count);
 }
 
-int	ft_spectype(char c, va_list arg, int i)
+int	main(void)
 {
-	if (c == 'c' || c == '%')
-		return (ft_putchar(c));
-	if (c == 's')
-		return (ft_printstr(va_arg(arg, char *), i));
-	if (c == 'p')
-		return (ft_printptr(va_arg(arg, void *), i));
-	if (c == 'd' || c == 'i')
-		return (ft_printint(va_arg(arg, int), i));
-	if (c == 'u')
-		return (ft_printuint(va_arg(arg, unsigned int), i));
-	if (c == 'x' || 'X')
-		return (ft_printhex(va_arg(arg, int), i))
-
-
-
+	ft_printf("plop%splip", "ABCDEF");
+	return (0);
 }
-
-int	ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-
-printf("%s %d mabite", "monboule", 48, 49)
