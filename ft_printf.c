@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:28:47 by egache            #+#    #+#             */
-/*   Updated: 2024/11/28 12:31:12 by egache           ###   ########.fr       */
+/*   Updated: 2024/11/28 16:39:10 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ static int	ft_printstr(char *str, int count)
 	return (count);
 }
 
-int	ft_printint(int nbr, int count)
-{
-	int		i;
-	char	*str;
+// int	ft_printint(int nbr, int count)
+// {
+// 	int		i;
+// 	char	*str;
 
-	i = 0;
-	str = ft_itoa(nbr);
-	while (str[i])
-		count += ft_putchar(str[i++]);
-	return
-}
+// 	i = 0;
+// 	str = ft_itoa(nbr);
+// 	while (str[i])
+// 		count += ft_putchar(str[i++]);
+// 	return
+// }
 
 int	ft_spectype(char c, va_list arg, int count)
 {
