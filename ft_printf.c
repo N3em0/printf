@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:28:47 by egache            #+#    #+#             */
-/*   Updated: 2024/11/28 12:14:15 by egache           ###   ########.fr       */
+/*   Updated: 2024/11/28 12:31:12 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,31 @@ static int	ft_printstr(char *str, int count)
 	return (count);
 }
 
+int	ft_printint(int nbr, int count)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = ft_itoa(nbr);
+	while (str[i])
+		count += ft_putchar(str[i++]);
+	return
+}
+
 int	ft_spectype(char c, va_list arg, int count)
 {
-	if (c == 'c' || c == '%')
-		return (ft_putchar(c));
+	if (c == 'c')
+		return (ft_putchar(va_arg(arg, int)));
+	if (c == '%')
+		return (ft_putchar('%'));
 	if (c == 's')
 		return (ft_printstr(va_arg(arg, char *), count));
 	return (count);
 	// if (c == 'p')
 	// 	return (ft_printptr(va_arg(arg, void *), count));
-	// if (c == 'd' || c == 'i')
-	// 	return (ft_printint(va_arg(arg, int), count));
+	if (c == 'd' || c == 'i')
+		return (ft_printint(va_arg(arg, int), count));
 	// if (c == 'u')
 	// 	return (ft_printuint(va_arg(arg, unsigned int), count));
 	// if (c == 'x' || 'X')
@@ -70,6 +84,6 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	ft_printf("plop%splip", "ABCDEF");
+	ft_printf("plop%%plip", ' ');
 	return (0);
 }
