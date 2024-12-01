@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:12:59 by egache            #+#    #+#             */
-/*   Updated: 2024/12/01 18:52:29 by egache           ###   ########.fr       */
+/*   Updated: 2024/12/01 18:59:49 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "stdarg.h"
 # include "unistd.h"
 # include "stdlib.h"
-# include <stddef.h>
+# include "stddef.h"
 
 int		ft_printf(const char *str, ...);
 char	*ft_itoa(int n);
