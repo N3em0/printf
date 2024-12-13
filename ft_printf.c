@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:28:47 by egache            #+#    #+#             */
-/*   Updated: 2024/12/13 15:30:42 by egache           ###   ########.fr       */
+/*   Updated: 2024/12/13 16:22:09 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,12 @@ int	ft_printf(const char *str, ...)
 // {
 // 	int	ptr;
 // 	int original, custom;
-// 	original = printf("Original: Hello %u %d %s %i a%p b%p c%p isthisNULL%s!\n", 124, 88851556, "cc", 8, (void *)&ptr, &ptr, (void *)NULL, NULL);
-// 	custom = ft_printf("Original: Hello %u %d %s %i a%p b%p c%p isthisNULL%s!\n", 124, 88851556, "cc", 8, (void *)&ptr, &ptr, (void *)NULL, NULL);
+// 	original = printf("Original: Hello %u %d %s %i a%p b%p
+//c%p isthisNULL%s!\n", 124, 88851556, "cc", 8,
+//(void *)&ptr, &ptr, (void *)NULL, NULL);
+// 	custom = ft_printf("Original: Hello %u %d %s %i a%p b%p
+//c%p isthisNULL%s!\n", 124, 88851556, "cc", 8,
+//(void *)&ptr, &ptr, (void *)NULL, NULL);
 // 	printf("Length check: original=%d, custom=%d\n", original, custom);
 // }
 // #include <limits.h>
