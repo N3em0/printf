@@ -6,7 +6,7 @@
 #    By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 17:21:13 by egache            #+#    #+#              #
-#    Updated: 2024/12/01 18:50:12 by egache           ###   ########.fr        #
+#    Updated: 2024/12/13 12:58:24 by egache           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,7 @@ SRCS	=	ft_printf.c\
 			ft_printuint.c\
 			ft_printptr.c\
 
-OBJ_DIR =   .objects/
-
-OBJS	=	${SRCS:%.c=${OBJ_DIR}%.o}
+OBJS	=	${SRCS:%.c=%.o}
 
 CC	=	cc
 
@@ -35,17 +33,14 @@ FLAGS	=	-Wall -Wextra -Werror
 
 all	:	${NAME}
 
-${OBJS} :   ${OBJ_DIR}%.o : %.c ${HEAD}
+${OBJS} :   %.o : %.c ${HEAD} Makefile
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}	:	${OBJ_DIR} ${OBJS}
+${NAME}	:	${OBJS}
 	${AR} ${NAME} ${OBJS}
 
-${OBJ_DIR}  :
-	mkdir -p ${OBJ_DIR}
-
 clean	:
-	rm -rf ${OBJ_DIR}
+	rm -rf ${OBJS}
 
 fclean	:	clean
 	rm -f ${NAME}
