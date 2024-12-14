@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:28:47 by egache            #+#    #+#             */
-/*   Updated: 2024/12/13 16:22:09 by egache           ###   ########.fr       */
+/*   Updated: 2024/12/13 20:03:44 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	count = 0;
 	va_start(arg, str);
-	while (str[i])
+	while (str && str[i])
 	{
 		if (str[i] == '%')
 		{
@@ -59,11 +59,13 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	return (count);
 }
-// #include <limits.h>
-// #include <stdio.h>
+#include <limits.h>
+#include <stdio.h>
 
-// int	main(void)
-// {
+int	main(void)
+{
+	printf("%d\n", ft_printf("%i%%", 32) - 1);
+	printf("%d\n", printf("%i%%", 32) - 1);
 // 	int	ptr;
 // 	int original, custom;
 // 	original = printf("Original: Hello %u %d %s %i a%p b%p
@@ -139,4 +141,4 @@ int	ft_printf(const char *str, ...)
 // 	custom = ft_printf("Custom  : %d %s\n", INT_MIN, NULL);
 // 	printf("Length check: original=%d, custom=%d\n", original, custom);
 // 	return (0);
-// }
+}

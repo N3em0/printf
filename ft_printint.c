@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:29:10 by egache            #+#    #+#             */
-/*   Updated: 2024/12/01 18:46:29 by egache           ###   ########.fr       */
+/*   Updated: 2024/12/13 20:05:45 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_printint(int nbr)
 	count = 0;
 	i = 0;
 	str = ft_itoa(nbr);
-	while (str[i])
+	while (str && str[i])
 		count += ft_putchar(str[i++]);
 	free(str);
 	return (count);
